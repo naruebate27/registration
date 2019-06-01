@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>ระบบลงทะเบียนเรียนออนไลน์</title>
+
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Registration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">ยืนยันการลงทะเบียนเรียน <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="result.html">ผลการลงทะเบียนเรียน <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <h1>ผลการลงทะเบียนเรียน ภาคการศึกษาที่ 1/2563</h1><br>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">รหัสวิชา</th>
+                <th scope="col">ชื่อวิชา</th>
+                <th scope="col">หน่วยกิต</th>
+                <th scope="col">กลุ่ม</th>
+            </tr>
+        </thead>
+        <tbody id="tblData">
+            
+        </tbody>
+    </table>
+
+</body>
+
+</html>
+
+
+<script>
+    // function loadData(){
+    //     var url = "http://127.0.0.1:1234/api/getmenus.php";
+    //     $.getJSON(url).done(function( data ) {
+    //         console.log(JSON.stringify(data));
+
+    //         var line = "";
+    //         $.each(data, function(k,item){
+    //             console.log(item);
+    //             line += "<tr><td align='center' width='100'>"+ item.subject_id+"</td>";
+    //             line += "<td align='center' width='100'>"+item.subject_name+"</td>";
+    //             line += "<td align='center' width='100'>"+item.subject_credit+"</td>";
+    //             line +="</td>";
+    //             line += "<td align='center' width='100'>"+item.subject_group+"</td>";
+    //             line += "<td align='center' width='100'>"+("html", "<input type=\"submit\" class=\"btn\" value=\"[ลบ]\">")+"</td>";
+    //             line += "</tr>";
+
+
+    //         });
+    //         line += "<tr><td align='center' width='100'>"+("html", "<input type=\"text\" class=\"form-control mr-sm-2\" id=\"keyword\" size=\"5\" value=\"\">")+("html", " <input type=\"submit\" id=\"serach\" size=\"5\" value=\"ค้นหา\">")+"</td>";
+    //         $("#tblData").empty();
+    //         $("#tblData").append(line);
+    //     });
+    // }
+
+    // $(function(){
+    //     loadData();
+    // });
+</script>
+
+</html>

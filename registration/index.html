@@ -1,137 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <title>Document</title>
-    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>ระบบลงทะเบียนเรียนออนไลน์</title>
+
     <style>
-        table[Attributes Style] {
-            border-top-width: 0px;
-            border-right-width: 0px;
-            border-bottom-width: 0px;
-            border-left-width: 0px;
-            -webkit-border-horizontal-spacing: 2px;
-            -webkit-border-vertical-spacing: 2px;
-        }
-        table {
-            white-space: normal;
-            line-height: normal;
-            font-weight: normal;
-            font-size: medium;
-            font-style: normal;
-            color: -internal-quirk-inherit;
-            text-align: start;
-            font-variant: normal;
-        }
-        table {
-            display: table;
-            border-collapse: separate;
-            border-spacing: 2px;
-            border-color: grey;
+        th {
+            text-align: center;
         }
     </style>
+
+
 </head>
+
 <body>
-<table border="0" cellspacing="2" cellpadding="1">
-    <tbody>
-        <tr>
-            <td width="10"></td>
-            <td colspan="4">&nbsp;<font face="CordiaUPC" size="7" color="#FF8000"><b>รายวิชาที่ต้องการลงทะเบียน</b></font></td>
-        </tr>
-        <tr>
-            <td width="10"></td>
-            <td colspan="4">
-                <table width="100%">
-                    <tbody>
-                        <tr>
-                            <td nowrap=""><font face="MS Sans Serif" size="3">ปีการศึกษา 2562/1</font></td>
-                        </tr>
-                    </tbody>
-                </table>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Registration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">ยืนยันการลงทะเบียนเรียน <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="result.html">ผลการลงทะเบียนเรียน <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <h1>การลงทะเบียนเรียน ภาคการศึกษาที่ 1/2563</h1><br>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" width="50">รหัสวิชา</th>
+                <th scope="col">ชื่อวิชา</th>
+                <th scope="col">หน่วยกิต</th>
+                <th scope="col">กลุ่ม</th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody id="tblData1">
+            <td scope="row">
+                <form class="form-inline">
+                    <div class="form-group mx-sm-1 mb-1">
+                        <input type="text" class="form-control" id="search" placeholder="ค้นหารายวิชา" value="">
+                        <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
+                            data-target="#myModal">ค้นหา</button>
+                        <div class="container">
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-lg">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">ผลการค้นหา</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">รหัสวิชา</th>
+                                                        <th scope="col">ชื่อวิชา</th>
+                                                        <th scope="col">หน่วยกิต</th>
+                                                        <th scope="col">กลุ่ม</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tblData2">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                </form>
             </td>
-        </tr>
-        <tr bgcolor="#800000">
-            <td bgcolor="#FFFFFF" width="10"></td>
-            <td align="CENTER" width="120"><font face="MS Sans Serif" size="3" color="#FFFFFF"><b>รหัสวิชา</b></font></td>
-            <td align="CENTER" width="450"><font face="MS Sans Serif" size="3" color="#FFFFFF"><b>--------คำอธิบาย--------</b></font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3" color="#FFFFFF"><b>นก./นว.</b></font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3" color="#FFFFFF"><b>กลุ่ม</b></font></td>
-            <td bgcolor="#FFFFFF"></td>
-        </tr>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">
-                <a href="class_info_2.asp?backto=enroll&amp;courseid=37018&amp;option=1">SWE60-351</a>
-                <span class="sup">©</span></font>
-            </td>
-            <td><font face="MS Sans Serif" size="3">Software Testing</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">3</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">1</font></td>
-            <td bgcolor="#FFFFFF" nowrap=""><font face="MS Sans Serif" size="3">[<a href="enroll.asp?f_cmd=3&amp;u_enrolltype=&amp;f_classid=181126&amp;avs874783800=4">ลบ</a>]</font></td>
-        </tr>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3"><a href="class_info_2.asp?backto=enroll&amp;courseid=37019&amp;option=1">SWE60-352</a><span class="sup">©</span></font></td>
-            <td><font face="MS Sans Serif" size="3">Software Metrics and Quality Assurance</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">3</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">1</font></td>
-            <td bgcolor="#FFFFFF" nowrap=""><font face="MS Sans Serif" size="3">[<a href="enroll.asp?f_cmd=3&amp;u_enrolltype=&amp;f_classid=181127&amp;avs874783800=4">ลบ</a>]</font></td>
-        </tr>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3"><a href="class_info_2.asp?backto=enroll&amp;courseid=37020&amp;option=1">SWE60-361</a><span class="sup">©</span></font></td>
-            <td><font face="MS Sans Serif" size="3">Software Process and Process Improvement</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">3</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">1</font></td>
-            <td bgcolor="#FFFFFF" nowrap=""><font face="MS Sans Serif" size="3">[<a href="enroll.asp?f_cmd=3&amp;u_enrolltype=&amp;f_classid=181128&amp;avs874783800=4">ลบ</a>]</font></td>
-        </tr>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3"><a href="class_info_2.asp?backto=enroll&amp;courseid=37045&amp;option=1">SWE60-390</a><span class="sup">©</span></font></td>
-            <td><font face="MS Sans Serif" size="3">Pre-Cooperative Education</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">1</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">1</font></td>
-            <td bgcolor="#FFFFFF" nowrap=""><font face="MS Sans Serif" size="3">[<a href="enroll.asp?f_cmd=3&amp;u_enrolltype=&amp;f_classid=179793&amp;avs874783800=4">ลบ</a>]</font></td>
-        </tr>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3"><a href="class_info_2.asp?backto=enroll&amp;courseid=37006&amp;option=1">SWE60-396</a><span class="sup">©</span></font></td>
-            <td><font face="MS Sans Serif" size="3">Soft Skills for Professional Software Engineers</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">2</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">1</font></td>
-            <td bgcolor="#FFFFFF" nowrap=""><font face="MS Sans Serif" size="3">[<a href="enroll.asp?f_cmd=3&amp;u_enrolltype=&amp;f_classid=181129&amp;avs874783800=4">ลบ</a>]</font></td>
-        </tr>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td></td>
-            <td align="RIGHT"><font face="MS Sans Serif" size="3">จำนวนหน่วยวิชารวม</font></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">12</font></td>
-            <td></td>
-            <td bgcolor="#FFFFFF"></td>
-        </tr>
-        <form name="inputCourse" autocomplete="OFF" method="POST" action="enroll.asp"></form>
-        <tr bgcolor="#FFF6F6" valign="TOP">
-            <td bgcolor="#FFFFFF"></td>
-            <td align="CENTER"><font face="MS Sans Serif" size="3">
-                <input type="HIDDEN" name="f_courseid" value="">
-                <input type="TEXT" size="10" name="f_coursecode" value="">
-                <td>&nbsp;<font color="#0000FF" face="MS Sans Serif" size="3"></font></td>
-                <td align="CENTER">&nbsp;</td>
-                <td align="CENTER"><font face="MS Sans Serif" size="3">
-                    <input type="TEXT" size="4" name="f_section" value=""></font>
-                </td>
-                <td bgcolor="#FFFFFF"></td>
-        </tr>
-        <tr valign="TOP">
-            <td><input type="HIDDEN" name="f_cmd" value="1"></td>
-            <td colspan="3"><font face="MS Sans Serif" size="3"></font></td>
-            <td><font face="MS Sans Serif" size="3"><input type="SUBMIT" size="3" name="cmd_ok" value="บันทึก"></font></td>
-            <td bgcolor="#FFFFFF"></td>
-        </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
 </body>
+
+</html>
+
+
+<script>
+    function loadData(){
+        var url = "http://localhost/registration/controllers/CourseController.php";
+        $.getJSON(url).done(function( data ) {
+            console.log(JSON.stringify(data));
+
+            var line = "";
+            $.each(data, function(k,item){
+                console.log(item);
+                line += "<tr><td align='center' width='100'>"+item.subject_id+"</td>";
+                line += "<td align='center' width='100'>"+item.name+"</td>";
+                line += "<td align='center' width='100'>"+item.state+"</td>";
+                line += "<td align='center' width='100'>"+item.subject_group+"</td>";
+                line += "<td align='center' width='100'>"+("html", "<input type=\"submit\" class=\"btn\" value=\"[ลบ]\">")+"</td>";
+                line += "</tr>";
+
+
+            });
+            line += "<tr><td align='center' width='100'>"+("html", "<input type=\"text\" class=\"form-control mr-sm-2\" id=\"keyword\" size=\"5\" value=\"\">")+("html", " <input type=\"submit\" id=\"serach\" size=\"5\" value=\"ค้นหา\">")+"</td>";
+            $("#tblData2").empty();
+            $("#tblData2").append(line);
+        });
+    }
+
+    $(function(){
+        loadData();
+    });
+    
+</script>
+
 </html>
