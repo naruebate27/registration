@@ -1,16 +1,16 @@
 <?php
 require_once '/../include/dbConnect.php';
 
-class StudentModel {
+class CourseModel {
     private $con;
     private $col;
 
     function __construct() {
         $db = new dbConnect();
         $this->con = $db->connect();
-        $this->col = new MongoCollection($this->con, 'student');
+        $this->col = new MongoCollection($this->con, 'course');
     }
-    public function getAllstudent() {
+    public function getAllcourse() {
         $cursor = $this->col->find();
         return $cursor;
     }

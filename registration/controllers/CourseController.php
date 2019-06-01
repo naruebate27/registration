@@ -1,34 +1,29 @@
 <?php
-require_once '/../models/StudentModel.php';
-class StudentController
+require_once '/../models/CourseModel.php';
+class CourseController
 {
    function index(){
-        $db = new StudentModel();
-        $cursor = $db->getAllStudent();
+        $db = new CourseModel();
+        $cursor = $db->getAllcourse();
         
-        $arrStudent = array();
+        $arrCourse = array();
         foreach ($cursor as $key => $value) {
-            $studentData = array(
+            $courseData = array(
                "id" => $value["_id"],
-               // "stu_id" => $value['stu_id'],
+               "subject_id" => $value["subject_id"],
                "name" => $value["name"],
-               "gender" => $value["gender"],
-               "phone_number" => $value["phone_number"],
-               "dob" => $value["dob"],
-               "address" => $value["address"],
-               "email" => $value["email"],
-               "register" => $value["register"]
+               "state" => $value["state"]
             );
-            array_push($arrStudent,$studentData);
+            array_push($arrCourse,$courseData);
         }  
-        response(200, $arrStudent);
+        response(200, $arrCourse);
    }
 
-   // function findByName($name){
-   //    $db = new StudentModel();
-   //    $cursor = $db->findByName($name);
-   //    response(200, $cursor);
-   // }
+// function findByName($name){
+//    $db = new StudentModel();
+//    $cursor = $db->findByName($name);
+//    response(200, $cursor);
+// }
 
 //    function findById($Id){
 //       $db = new StudentModel();

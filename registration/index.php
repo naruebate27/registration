@@ -12,7 +12,10 @@ require_once '/controllers/StudentController.php';
     echo json_encode($response, JSON_PRETTY_PRINT);
   }
 
-  $app->get('/hello',['StudentController', 'index']);
+  
+
+  $app->get('/hel',['CourseController','index']);
+  // $app->get('/hello',['StudentController','index']);
   // $app->get('/findByName/:name', function ($name) {
   //   StudentController::findByName($name);
   // });
@@ -44,3 +47,4 @@ require_once '/controllers/StudentController.php';
 
   $app->run();
 ?>
+
