@@ -84,7 +84,7 @@
                                                     <tr>
                                                         <th scope="col">รหัสวิชา</th>
                                                         <th scope="col">ชื่อวิชา</th>
-                                                        <th scope="col">หน่วยกิต</th>
+                                                        <!-- <th scope="col">หน่วยกิต</th> -->
                                                         <th scope="col">กลุ่ม</th>
                                                         <th scope="col"></th>
                                                     </tr>
@@ -115,32 +115,56 @@
 
 
 <script>
-    function loadData(){
-        var url = "http://localhost/registration/controllers/CourseController.php";
+    // function loadData(){
+    //     var url = "http://localhost/registration/controllers/CourseController.php";
+    //     $.getJSON(url).done(function( data ) {
+    //         console.log(JSON.stringify(data));
+
+    //         var line = "";
+    //         $.each(data, function(k,item){
+    //             console.log(item);
+    //             line += "<tr><td align='center' width='100'>"+item.subject_id+"</td>";
+    //             line += "<td align='center' width='100'>"+item.name+"</td>";
+    //             line += "<td align='center' width='100'>"+item.state+"</td>";
+    //             line += "<td align='center' width='100'>"+item.subject_group+"</td>";
+    //             line += "<td align='center' width='100'>"+("html", "<input type=\"submit\" class=\"btn\" value=\"[ลบ]\">")+"</td>";
+    //             line += "</tr>";
+
+
+    //         });
+    //         line += "<tr><td align='center' width='100'>"+("html", "<input type=\"text\" class=\"form-control mr-sm-2\" id=\"keyword\" size=\"5\" value=\"\">")+("html", " <input type=\"submit\" id=\"serach\" size=\"5\" value=\"ค้นหา\">")+"</td>";
+    //         $("#tblData2").empty();
+    //         $("#tblData2").append(line);
+    //     });
+    // }
+
+    // $(function(){
+    //     loadData();
+    // });
+
+
+    function renderTable(data){
+        var url = "http://localhost/registration/hello";
         $.getJSON(url).done(function( data ) {
             console.log(JSON.stringify(data));
+          
+          var profile = $("#tblData2");
+          profile.empty();
 
-            var line = "";
-            $.each(data, function(k,item){
-                console.log(item);
-                line += "<tr><td align='center' width='100'>"+item.subject_id+"</td>";
-                line += "<td align='center' width='100'>"+item.name+"</td>";
-                line += "<td align='center' width='100'>"+item.state+"</td>";
-                line += "<td align='center' width='100'>"+item.subject_group+"</td>";
-                line += "<td align='center' width='100'>"+("html", "<input type=\"submit\" class=\"btn\" value=\"[ลบ]\">")+"</td>";
-                line += "</tr>";
-
-
-            });
-            line += "<tr><td align='center' width='100'>"+("html", "<input type=\"text\" class=\"form-control mr-sm-2\" id=\"keyword\" size=\"5\" value=\"\">")+("html", " <input type=\"submit\" id=\"serach\" size=\"5\" value=\"ค้นหา\">")+"</td>";
-            $("#tblData2").empty();
-            $("#tblData2").append(line);
+          $.each(data, function (index, value) { 
+            console.log(value);
+                profile.append('<tr>'
+                + "<td align='center'>"+value.stuid+"</td>"
+                + "<td align='center'>"+value.name+"</td>"
+                + "<td align='center'>"+value.gender+"</td>"
+                + "<td align='center'>"+("html", "<input type=\"submit\" class=\"btn\" value=\"[เลือก]\">")+"</td>"
+                + '</tr>')
+          });
         });
-    }
-
-    $(function(){
-        loadData();
-    });
+        }
+        $(function(){
+            renderTable();
+        });
     
 </script>
 
